@@ -2,48 +2,46 @@ import { Check } from 'lucide-react';
 
 const plans = [
   {
-    name: "Free",
-    price: "₹0",
-    period: "/month",
+    name: "Developer",
+    price: "Free",
+    period: "",
     features: [
-      "Monitor 5 APIs",
-      "1 Hour Check Frequency",
-      "24h Data Retention",
-      "Email Alerts"
+      "Monitor up to 3 APIs",
+      "1 Minute Frequency",
+      "Email Alerts",
+      "24h History"
     ],
-    buttonText: "Get Started",
+    buttonText: "Manage Plan",
     popular: false,
     gradient: "from-gray-100 to-gray-200"
   },
   {
-    name: "Pro",
-    price: "₹199",
-    period: "/month",
+    name: "Startup",
+    price: "$29",
+    period: "/mo",
     features: [
-      "Unlimited APIs",
-      "1 Minute Check Frequency",
-      "30 Days Data Retention",
-      "Slack & SMS Alerts",
-      "Team Members"
+      "Monitor up to 20 APIs",
+      "30s Frequency",
+      "SMS & Slack Alerts",
+      "30 Days History"
     ],
-    buttonText: "Subscribe Now",
-    popular: false,
+    buttonText: "Upgrade",
+    popular: true,
     gradient: "from-blue-50 to-blue-100",
     border: "border-blue-200"
   },
   {
-    name: "Lifetime",
-    price: "₹999",
-    period: "one-time",
+    name: "Enterprise",
+    price: "$99",
+    period: "/mo",
     features: [
-      "Everything in Pro",
-      "Lifetime Updates",
-      "Priority Support",
-      "Early Access to Features",
-      "No Recurring Fees"
+      "Unlimited APIs",
+      "10s Frequency",
+      "Phone Call Alerts",
+      "1 Year History"
     ],
-    buttonText: "Grab Lifetime Deal",
-    popular: true, // Highlights this card
+    buttonText: "Upgrade",
+    popular: false,
     gradient: "from-purple-600 to-indigo-600",
     dark: true
   }
@@ -71,13 +69,6 @@ export default function Pricing() {
               `}
             >
               
-              {/* Limited Offer Badge for Lifetime */}
-              {plan.popular && (
-                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-lg">
-                  Limited Offer
-                </span>
-              )}
-
               <h3 className={`text-xl font-semibold mb-2 ${plan.dark ? 'text-white' : 'text-gray-900'}`}>
                 {plan.name}
               </h3>
