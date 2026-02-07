@@ -14,7 +14,7 @@ export default function AddApiModal({ onClose, refresh }: { onClose: () => void,
     e.preventDefault();
     try {
       // Hardcoded userId for now (Phase 10 is Auth)
-      await axios.post('http://localhost:3000/api/endpoints', {
+      await axios.post('http://localhost:5000/api/endpoints', {
         ...formData,
         userId: "65b2f...mock_user_id..." 
       });
