@@ -19,6 +19,9 @@ interface Endpoint {
   latency?: number;
 }
 
+// Use environment variable for API URL, fallback to localhost for development
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+
 export default function Dashboard() {
   const [endpoints, setEndpoints] = useState<Endpoint[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -39,7 +42,7 @@ export default function Dashboard() {
     setIsRefreshing(true);
     try {
       // Assuming Backend is running on port 3000
-      const res = await axios.get('http://localhost:5000/api/endpoints'); 
+      const res = await axios.get(`${API_BASE_URL}/api/endpoints`); 
       setEndpoints(res.data);
     } catch (err) {
       console.error("Failed to fetch", err);
@@ -52,7 +55,7 @@ export default function Dashboard() {
   const handleDelete = async (id: string) => {
     if(!confirm("Are you sure you want to delete this monitor?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/endpoints/${id}`);
+      await axios.delete(`${API_BASE_URL}/api/endpoints/${id}`);
       fetchEndpoints(); // Refresh list
     } catch(err) {
       alert("Failed to delete");
