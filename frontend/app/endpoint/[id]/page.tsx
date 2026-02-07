@@ -1,3 +1,4 @@
+'use client';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 // Data from backend looks like:
@@ -22,3 +23,7 @@ export const ResponseTimeChart = ({ data }: { data: any[] }) => (
     </ResponsiveContainer>
   </div>
 );
+
+export default function Page() {
+  return <ResponseTimeChart data={[]} />;
+}
